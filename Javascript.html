@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="images/favicon.png">
+<link rel="stylesheet" href="MyStyle.css">
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
+<script>
+  function updateTime() { 
+
+  	// get all parts of the current time
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    // splice them together into a character string named "currentTime"
+    var currentTime = hours + ':' + minutes + ':' + seconds;    
+    
+    // get the clock div 
+    var myClock = document.getElementById('clock');
+    
+    // write the currentTime string to the clock div
+    myClock.innerHTML = currentTime;
+	  // add leading zero's to minutes and seconds
+  if (minutes < 10) { 
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) { 
+    seconds = '0' + seconds;
+  }				
+
+  // get time of day (am or pm) 
+  if (hours >= 12 && hours < 24) { 
+    var timeOfDay = 'pm';
+  }
+  else { 
+    var timeOfDay = 'am'; 
+  }
+				
+  // convert hours from 24-hour time to 12-hour time
+  if (hours > 12) { 
+    hours = hours - 12;
+  }
+  }
+    function toggleClock() { 
+    // get the clock 
+    var myClock = document.getElementById('clock');
+
+    // get the current value of the clock's display property 
+    var displaySetting = myClock.style.display;
+
+    // also get the clock button, so we can change what it says 
+    var clockButton = document.getElementById('clockButton');
+				
+    // now toggle the clock and the button text, depending on current state
+    if (displaySetting == 'block') { 
+      // clock is visible. hide it
+      myClock.style.display = 'none';
+      // change button text
+      clockButton.innerHTML = 'Show clock';
+    }
+    else { 
+      // clock is hidden. show it 
+      myClock.style.display = 'block';
+      // change button text
+      clockButton.innerHTML = 'Hide clock';
+    }
+  }  
+</script>
+</head>
+<button onclick="toggleClock()" id="clockButton">Show clock</button>
+	<body onload="setInterval('updateTime()',1000)">
+	<div class="dropdown">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Index.html">Index</a>
+   <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Accessability.html">Accessability</a>
+     <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Graphics.html">Graphics</a>
+   <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Javascript.html">Javascript</a>
+   <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Tools.html">Tools</a>
+   <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Usability.html">Usability</a>
+   <a href="file://brsd-jb-fs01/2018$/18Huangm/WebPortfolioFinal_Michael/Video.html">Video</a>
+  </div>
+</div>
+	
+	<div id="clock"></div>
+	
+	
+	
+	
+	
+	
+	</body>
+	
+</html>
